@@ -49,6 +49,22 @@
           <version>2.22.1</version>
         </plugin>
         <plugin>
+            <artifactId>maven-checkstyle-plugin</artifactId>
+            <version>3.1.1</version>
+            <executions>
+                <execution>
+                    <phase>package</phase> <!-- Run during the 'package' phase -->
+                    <goals>
+                        <goal>check</goal> <!-- Execute the check goal -->
+                    </goals>
+                    <configuration>
+                        <configLocation>checkstyle.xml</configLocation> <!-- Path to the Checkstyle configuration file -->
+                        <failOnViolation>true</failOnViolation> <!-- Fail the build if violations are found -->
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+        <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.0.2</version>
         </plugin>
