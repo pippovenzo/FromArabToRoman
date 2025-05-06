@@ -17,7 +17,7 @@ jobs:
     - name: Build with Maven 
       run: mvn -B install --file roman-number/pom.xml
     - name: Generate jacoco report
-      run: mvn --file pom.xml --batch-mode --update-snapshots test jacoco:report
+      run: mvn --file roman-number/pom.xml --batch-mode --update-snapshots test jacoco:report
     - name: Coveralls GitHub Action
-      run: mvn --file pom.xml coveralls:report --define repoToken=${{ secrets.COVERALLS_REPO_TOKEN }}  
+      run: mvn --file roman-number/pom.xml coveralls:report --define repoToken=${{ secrets.COVERALLS_REPO_TOKEN }}  
   
