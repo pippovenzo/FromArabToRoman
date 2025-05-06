@@ -10,12 +10,12 @@
 
   <name>roman-number</name>
   <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <url>https://github.com/pippovenzo/FromArabToRoman</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
 
   <dependencies>
@@ -71,5 +71,24 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+      <plugin>
+            <artifactId>maven-checkstyle-plugin</artifactId>
+            <version>3.3.0</version>
+            <executions>
+                <execution>
+                    <phase>package</phase> <!-- Run during the 'package' phase -->
+                    <goals>
+                        <goal>check</goal> <!-- Execute the check goal -->
+                    </goals>
+                    <configuration>
+                        <configLocation>checkstyle.xml</configLocation> <!-- Path to the Checkstyle configuration file -->
+                        <failsOnError>true</failsOnError> <!-- Fail the build if violations are found -->
+                        <consoleOutput>true</consoleOutput>
+                    </configuration>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
   </build>
 </project>
