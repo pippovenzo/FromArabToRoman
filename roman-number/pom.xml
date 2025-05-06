@@ -48,6 +48,48 @@
           <artifactId>maven-surefire-plugin</artifactId>
           <version>2.22.1</version>
         </plugin>
+          <!-- JaCoCo Plugin for calculating code coverage -->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>0.8.8</version> <!-- Use the latest available version -->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal> <!-- Prepares JaCoCo before running tests -->
+                            <goal>report</goal> <!-- Generates the coverage report after tests -->
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- Set the minimum coverage rule -->
+                    <rules>
+                        <rule>
+                            <element>CLASS</element>
+                            <limits>
+                                <limit line="85" /> <!-- Minimum coverage of 85% -->
+                            </limits>
+                        </rule>
+                    </rules>
+                </configuration>
+            </plugin>
+            <!-- Coveralls Plugin for sending coverage report to Coveralls -->
+            <plugin>
+                <groupId>org.eluder.coveralls</groupId>
+                <artifactId>coveralls-maven-plugin</artifactId>
+                <version>4.3.0</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>report</goal> <!-- Upload the coverage report to Coveralls -->
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <!-- Set the repository token as an environment variable -->
+                    <repoToken>${secrets.COVERALLS_REPO_TOKEN}</repoToken>
+                </configuration>
+            </plugin>
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.0.2</version>
