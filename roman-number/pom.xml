@@ -102,8 +102,8 @@
                             <limits>
                                 <limit>
                                     <counter>COMPLEXITY</counter>
-                                    <value>85</value>
-                                    <minimum>0.20</minimum>
+                                    <value>COVEREDRATIO</value>
+                                    <minimum>0.85</minimum>
                                 </limit>
                             </limits>
                         </rule>
@@ -112,23 +112,6 @@
             </execution>
         </executions>   
     </plugin>
-    <!-- Coveralls Plugin for sending coverage report to Coveralls -->
-            <plugin>
-                <groupId>org.eluder.coveralls</groupId>
-                <artifactId>coveralls-maven-plugin</artifactId>
-                <version>4.3.0</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>report</goal> <!-- Upload the coverage report to Coveralls -->
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <!-- Set the repository token as an environment variable -->
-                    <repoToken>${secrets.COVERALLS_REPO_TOKEN}</repoToken>
-                </configuration>
-            </plugin>
     </plugins>
   </build>
 </project>

@@ -19,5 +19,7 @@ jobs:
     - name: Generate jacoco report
       run: mvn --file roman-number/pom.xml --batch-mode --update-snapshots test jacoco:report
     - name: Coveralls GitHub Action
-      run: mvn --file roman-number/pom.xml coveralls:report --define repoToken=${{ secrets.COVERALLS_REPO_TOKEN }}  
+      uses: coverallsapp/github-action@v2 
+      with: 
+        github-token: ${{ secrets.GITHUB_TOKEN   }}
   
