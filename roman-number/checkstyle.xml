@@ -28,7 +28,7 @@
     		<property name="max" value="120"/>
   	</module>
  	<module name="Header">
-  		<property name="headerFile" value="HEADER.txt"/>
+  		<property name="headerFile" value="roman-number/HEADER.txt"/>
  	</module>
 	<module name="FileTabCharacter"/>
 </module>
