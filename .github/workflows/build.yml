@@ -1,0 +1,25 @@
+name: Build Automation con Maven
+
+on: [push]
+jobs: 
+  build:
+  
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up JDK 11
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: 11
+        cache: 'maven'
+    - name: Build with Maven 
+      run: mvn -B install --file roman-number/pom.xml
+    - name: Generate jacoco report
+      run: mvn --file roman-number/pom.xml --batch-mode --update-snapshots test jacoco:report
+    - name: Coveralls GitHub Action
+      uses: coverallsapp/github-action@v2 
+      with: 
+        github-token: ${{ secrets.GITHUB_TOKEN   }}
+  
