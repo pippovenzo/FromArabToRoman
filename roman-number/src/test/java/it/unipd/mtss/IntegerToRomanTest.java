@@ -23,7 +23,7 @@ public class IntegerToRomanTest
         //Act
         ris = IntegerToRoman.convert(1150);
         //Assert
-        assertEquals("error: i numeri devo essere >= 1 e <= 1000",ris);
+        assertEquals("Over limit number!",ris);
     }
 
     @Test
@@ -34,7 +34,7 @@ public class IntegerToRomanTest
         //Act
         ris = IntegerToRoman.convert(-10);
         //Assert
-        assertEquals("error: i numeri devo essere >= 1 e <= 1000",ris);
+        assertEquals("Under limit number!",ris);
     }
 
     @Test
@@ -45,7 +45,7 @@ public class IntegerToRomanTest
         //Act
         ris = IntegerToRoman.convert(0);
         //Assert
-        assertEquals("error: i numeri devo essere >= 1 e <= 1000",ris);
+        assertEquals("Under limit number!",ris);
     }
 
     @Test
